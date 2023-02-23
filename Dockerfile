@@ -13,4 +13,4 @@ FROM debian:buster-slim
 EXPOSE 8066
 COPY --from=build /build/target/release/ord /bin/ord
 USER 1000
-# ENTRYPOINT ["/bin/ord", "--data-dir", "/data/.bitcoin", "--cookie-file", ".cookie", "server", "--http-port", "8066"]
+ENTRYPOINT ["/bin/ord", "--data-dir", "/data/.bitcoin", "--cookie-file", ".cookie", "server", "--http-port", "8066"]
