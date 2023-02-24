@@ -5,7 +5,7 @@ ARG VERSION
 WORKDIR /build
 RUN apt-get update
 RUN apt-get install -y libssl-dev git
-RUN git clone --depth 1--branch $VERSION https://github.com/casey/ord.git .
+RUN git clone --depth 1 --branch $VERSION https://github.com/casey/ord.git .
 # cargo under QEMU building for ARM can consumes 10s of GBs of RAM...
 # Solution: https://users.rust-lang.org/t/cargo-uses-too-much-memory-being-run-in-qemu/76531/2
 ENV CARGO_NET_GIT_FETCH_WITH_CLI true
