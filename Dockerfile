@@ -1,4 +1,5 @@
 ARG VERSION=0.5.1
+
 FROM rust:1.67.0-slim-buster AS builder
 ARG VERSION
 WORKDIR /build
