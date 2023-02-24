@@ -1,7 +1,7 @@
 ARG VERSION=0.5.1
 
 FROM rust:1.67.0-slim-buster AS builder
-ARG VERSION
+ARG VERSION=0.5.1
 WORKDIR /build
 RUN apt-get update
 RUN apt-get install -y libssl-dev git
