@@ -1,5 +1,5 @@
-ARG VERSION=master
-FROM rust:1.67.0-slim-buster AS builder
+ARG VERSION=0.5.1
+FROM rust:1.67.0-slim-buster AS build
 WORKDIR /build
 RUN apt-get upgrade
 RUN apt-get install -y gcc curl openssl-dev musl-dev git
