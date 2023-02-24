@@ -1,5 +1,5 @@
 ARG VERSION=0.5.1
-FROM rust:1.67.0-slim-buster AS build
+FROM rust:1.67.0-slim-buster AS builder
 ARG VERSION
 WORKDIR /build
 RUN apt-get update
@@ -12,6 +12,6 @@ RUN cargo build --release
 
 FROM debian:buster-slim
 EXPOSE 8066
-COPY --from=build /build/target/release/ord /bin/ord
+COPY --from=builder /build/target/release/ord /bin/ord
 USER 1000
 ENTRYPOINT ["/bin/ord", "--data-dir", "/data/.bitcoin", "--cookie-file", ".cookie", "server", "--http-port", "8066"]
