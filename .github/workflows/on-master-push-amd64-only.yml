@@ -11,7 +11,7 @@ env:
 jobs:
   build:
     name: Build ord image
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
     env:
       VERSION: v0.5.1
     steps:
@@ -40,5 +40,5 @@ jobs:
           docker buildx build \
           --platform linux/amd64 \
           --build-arg VERSION=$VERSION \
-          --tag lukechilds/electrs:$VERSION-amd64 \
+          --tag greerso/ord:$VERSION-amd64 \
           --output "type=registry" .
